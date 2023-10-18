@@ -29,10 +29,10 @@ public class OrderServicesImple implements com.amdocs.buyyourphonebackend.Servic
     public Orders addOrder(long id, Orders ord) {
         Orders ordToUpdate = order_repository.findById(id).orElseThrow(() ->
                 new ResourceNotFound("User not Exit with id "+id));
-        ordToUpdate.setAccessory_name(ord.getAccessory_name());
-        ordToUpdate.setAccessory_price(ord.getAccessory_price());
-        ordToUpdate.setAccessory_img(ord.getAccessory_img());
-        ordToUpdate.setAccessory_dlv_time(ord.getAccessory_dlv_time());
+        ordToUpdate.setAccessoryName(ord.getAccessoryName());
+        ordToUpdate.setAccessoryPrice(ord.getAccessoryPrice());
+        ordToUpdate.setAccessoryImg(ord.getAccessoryImg());
+        ordToUpdate.setAccessoryDlvTime(ord.getAccessoryDlvTime());
         order_repository.save(ordToUpdate);
 
         return ordToUpdate;
