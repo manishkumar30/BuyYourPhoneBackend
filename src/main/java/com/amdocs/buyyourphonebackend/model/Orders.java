@@ -14,45 +14,37 @@ import lombok.*;
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
-    private long order_id;
+    @Column(name = "orderId")
+    private long orderId;
 
-    @Column(name = "device_img")
-    private String device_img;
+    @Column(name = "deviceImg")
+    private String deviceImg;
 
-    @Column(name = "device_name")
-    private String device_name;
+    @Column(name = "deviceName")
+    private String deviceName;
 
-    @Column(name = "device_variant")
-    private String device_variant;
+    @Column(name = "deviceVariant")
+    private String deviceVariant;
 
-    @Column(name = "device_price")
-    private long device_price;
+    @Column(name = "devicePrice")
+    private long devicePrice;
 
-    @Column(name = "device_dlv_time")
-    private long device_dlv_time;
+    @Column(name = "deviceDlvTime")
+    private long deviceDlvTime;
 
-    @Column(name = "accessory_img")
-    private String accessory_img;
+    @Column(name = "accessoryImg")
+    private String accessoryImg;
 
-    @Column(name = "accessory_name")
-    private String accessory_name;
+    @Column(name = "accessoryName")
+    private String accessoryName;
 
-//    @Column(name = "accessory_name")
-//    private String accessory_name;
+    @Column(name = "accessoryPrice")
+    private long accessoryPrice;
 
-    @Column(name = "accessory_price")
-    private long accessory_price;
+    @Column(name = "accessoryDlvTime")
+    private long accessoryDlvTime;
 
-    @Column(name = "accessory_dlv_time")
-    private long accessory_dlv_time;
-
-    @Column(name = "address_detail")
-    private String address_detail;
-
-    // foreign key
-//    @OneToOne(cascade= CascadeType.ALL)
-//    @JoinColumn(name = "family_id")
-//    private Family family;
+    @Column(name = "addressDetail")
+    private String addressDetail;
 
 }

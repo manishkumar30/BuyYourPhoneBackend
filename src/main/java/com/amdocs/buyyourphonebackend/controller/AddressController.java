@@ -1,4 +1,4 @@
-package com.amdocs.buyyourphonebackend.controller;
+package com.amdocs.buyyourphonebackend.Controller;
 
 import com.amdocs.buyyourphonebackend.Services.OrderServicesImple;
 import com.amdocs.buyyourphonebackend.dto.AddressRequest;
