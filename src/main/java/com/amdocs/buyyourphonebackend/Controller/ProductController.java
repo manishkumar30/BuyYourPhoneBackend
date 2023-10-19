@@ -1,4 +1,4 @@
-package com.amdocs.buyyourphonebackend.Controller;
+package com.amdocs.buyyourphonebackend.controller;
 
 import com.amdocs.buyyourphonebackend.Entity.Product;
 import com.amdocs.buyyourphonebackend.Repository.ProductRepository;

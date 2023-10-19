@@ -5,9 +5,22 @@ import org.springframework.stereotype.Service;
 import com.amdocs.buyyourphonebackend.Exception.ResourceNotFound;
 import com.amdocs.buyyourphonebackend.model.Orders;
 import com.amdocs.buyyourphonebackend.Repository.OrderRepository;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 
 @Service
 public class OrderServicesImple implements com.amdocs.buyyourphonebackend.Services.OrderServices{
+
+    private final JdbcTemplate jdbcTemplate;
+    @Autowired
+    public OrderServicesImple(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public Long getLastInsertedOrderId() {
+        // Retrieve the last inserted order_id
+        return jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Long.class);
+    }
     @Autowired
     private OrderRepository order_repository;
 
@@ -39,6 +52,16 @@ public class OrderServicesImple implements com.amdocs.buyyourphonebackend.Servic
     }
 
     @Override
+    public Orders updateAddress(long id, String addr) {
+        Orders ordToUpdate = order_repository.findById(id).orElseThrow(() ->
+                new ResourceNotFound("User not Exit with id "+id));
+        ordToUpdate.setAddress_detail(addr);
+        order_repository.save(ordToUpdate);
+
+        return ordToUpdate;
+    }
+
+    @Override
     public Orders deleteOrder(long id) {
         Orders ord = order_repository.findById(id).orElseThrow(() ->
                 new ResourceNotFound("Order not Exit with id "+id));
@@ -46,6 +69,13 @@ public class OrderServicesImple implements com.amdocs.buyyourphonebackend.Servic
 
         return ord;
     }
+    @Override
+    public String getAddressbyOrderId(long id){
+        Orders ordToUpdate = order_repository.findById(id).orElseThrow(() ->
+                new ResourceNotFound("User not Exit with id "+id));
+        return ordToUpdate.getAddress_detail();
+    }
+
 
 }
 

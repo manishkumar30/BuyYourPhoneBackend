@@ -1,5 +1,6 @@
-package com.amdocs.buyyourphonebackend.Controller;
+package com.amdocs.buyyourphonebackend.controller;
 
+//import com.amdocs.buyyourphonebackend.dto.AddressRequest;
 import com.amdocs.buyyourphonebackend.model.Orders;
 import com.amdocs.buyyourphonebackend.Services.OrderServicesImple;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 public class OrderController {
     @Autowired
     private OrderServicesImple orderServicesImple;
+//    private String userAddress = "";
 
     @PostMapping("/createOrder")
     public Map<String, Object> createOrder(@RequestBody Orders order) {
@@ -39,6 +41,22 @@ public class OrderController {
     public ResponseEntity<Orders> deleteOrder(@PathVariable long id){
         return new ResponseEntity<>(orderServicesImple.deleteOrder(id) , HttpStatus.NO_CONTENT);
     }
+
+//    @PutMapping("/updateAddress")
+//    public String updateAddress(@RequestBody AddressRequest addressRequest) {
+//        // Merge address fields received in the request
+//        // Update the user's address in the "database"
+//        userAddress = addressRequest.getAddressLine1() + ", " +
+//                addressRequest.getAddressLine2() + ", Landmark: " +
+//                addressRequest.getLandmark() + ", Road: " +
+//                addressRequest.getRoad();
+//
+//        return "Address updated successfully!";
+//    }
+//    @GetMapping("/getUserAddress")
+//    public String getUserAddress() {
+//        return userAddress;
+//    }
 
 }
 
