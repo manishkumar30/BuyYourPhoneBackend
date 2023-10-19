@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000/")
 @RequestMapping("/api/products")
 public class ProductController {
     @Autowired
@@ -35,6 +36,23 @@ public class ProductController {
             return productRepository.save(product);
         }
     }
+
+    @GetMapping("/byBrandAndModel")
+    public List<Product> getProductsByBrandAndModel(@RequestParam String brand, @RequestParam String model) {
+        return productRepository.findByBrandAndModel(brand, model);
+    }
+
+    @GetMapping("/accessories")
+    public List<Product> getAllAccessoryProducts() {
+        return productRepository.findByType("accessory");
+    }
+
+    @GetMapping("/mobile")
+    public List<Product> getAllMobileProducts() {
+        return productRepository.findByType("mobile");
+    }
+
+
 
     @GetMapping
     public List<Product> getAllProducts() {

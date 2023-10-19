@@ -91,6 +91,15 @@ public class Product {
     private String price;
     private int quantity;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "warehouse_id")

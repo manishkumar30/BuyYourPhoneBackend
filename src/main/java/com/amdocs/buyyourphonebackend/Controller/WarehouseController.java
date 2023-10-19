@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/warehouses")
+@CrossOrigin("http://localhost:3000/")
 public class WarehouseController {
     @Autowired
     private WarehouseRepository warehouseRepository;
